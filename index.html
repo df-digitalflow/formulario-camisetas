@@ -6,115 +6,62 @@
 <title>Pedido de Camisetas — TOTVS Oeste 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
 <style>
-/* ── VARIÁVEIS ────────────────────────────────────────── */
 :root{
   --bg:#0E1621;--surface:#162032;--surface2:#1C2A3F;
   --border:rgba(0,210,230,.15);--border2:rgba(255,255,255,.09);
   --cyan:#00D2E6;--pink:#E91E8C;--white:#fff;
-  --muted:rgba(255,255,255,.45);--muted2:rgba(255,255,255,.7);
+  --muted:rgba(255,255,255,.45);--muted2:rgba(255,255,255,.75);
   --radius:16px;--shadow:0 4px 32px rgba(0,0,0,.4);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;padding-bottom:80px;}
 
-/* ── HERO ─────────────────────────────────────────────── */
-.hero{
-  background:linear-gradient(135deg,#0B1829 0%,#0E2240 60%,#0B2535 100%);
-  padding:52px 24px 48px;text-align:center;position:relative;overflow:hidden;
-  border-bottom:1px solid var(--border);
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 55% 70% at 15% 50%,rgba(0,210,230,.18) 0%,transparent 70%),
-    radial-gradient(ellipse 45% 60% at 85% 50%,rgba(233,30,140,.12) 0%,transparent 70%);
-}
-.hero-chip{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(0,210,230,.12);border:1px solid rgba(0,210,230,.3);
-  color:var(--cyan);font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;
-  padding:5px 16px;border-radius:999px;margin-bottom:20px;position:relative;
-}
-.hero h1{
-  font-family:'Syne',sans-serif;font-size:clamp(26px,6vw,42px);
-  font-weight:800;line-height:1.12;position:relative;margin-bottom:10px;
-}
+/* HERO */
+.hero{background:linear-gradient(135deg,#0B1829 0%,#0E2240 60%,#0B2535 100%);padding:52px 24px 48px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 15% 50%,rgba(0,210,230,.18) 0%,transparent 70%),radial-gradient(ellipse 45% 60% at 85% 50%,rgba(233,30,140,.12) 0%,transparent 70%);}
+.hero-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(0,210,230,.12);border:1px solid rgba(0,210,230,.3);color:var(--cyan);font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:999px;margin-bottom:20px;position:relative;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(26px,6vw,42px);font-weight:800;line-height:1.12;position:relative;margin-bottom:10px;}
 .hero h1 span{color:var(--cyan);}
 .hero p{color:var(--muted);font-size:14px;line-height:1.65;max-width:460px;margin:0 auto;position:relative;}
-.hero-meta{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
-  margin-top:22px;position:relative;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:8px 16px;border-radius:9px;font-size:13px;font-weight:500;
-}
+.hero-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:9px;font-size:13px;font-weight:500;}
 .hero-badge.date{background:rgba(233,30,140,.15);border:1px solid rgba(233,30,140,.3);color:#ff69b4;}
 .hero-badge.time{background:rgba(0,210,230,.1);border:1px solid rgba(0,210,230,.25);color:var(--cyan);}
 
-/* ── CONTAINER ────────────────────────────────────────── */
+/* CONTAINER */
 .container{max-width:700px;margin:0 auto;padding:24px 16px 0;}
 
-/* ── ALERT ────────────────────────────────────────────── */
-.alert{
-  background:rgba(0,210,230,.05);border:1px solid rgba(0,210,230,.18);
-  border-left:3px solid var(--cyan);border-radius:var(--radius);
-  padding:18px 20px;margin-bottom:14px;font-size:13px;line-height:1.75;color:var(--muted2);
-  animation:fadeUp .3s ease both;
-}
+/* ALERT */
+.alert{background:rgba(0,210,230,.05);border:1px solid rgba(0,210,230,.18);border-left:3px solid var(--cyan);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;font-size:13px;line-height:1.75;color:var(--muted2);}
 .alert strong{color:var(--cyan);}
 .alert ul{padding-left:18px;margin-top:6px;}
 .alert li{margin-bottom:4px;}
 
-/* ── CARD ─────────────────────────────────────────────── */
-.card{
-  background:var(--surface);border:1px solid var(--border2);
-  border-radius:var(--radius);padding:26px 26px 22px;
-  margin-bottom:14px;box-shadow:var(--shadow);
-  animation:fadeUp .4s ease both;
-}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+/* CARD */
+.card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:26px 26px 22px;margin-bottom:14px;box-shadow:var(--shadow);}
 
-.section-label{
-  display:flex;align-items:center;gap:10px;
-  font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);
-  margin-bottom:20px;
-}
+.section-label{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 
-/* ── FIELDS ───────────────────────────────────────────── */
+/* FIELDS */
 .field{margin-bottom:18px;}
 .field:last-child{margin-bottom:0;}
 label{display:block;font-size:13px;font-weight:500;color:var(--muted2);margin-bottom:7px;}
 label .req{color:var(--pink);margin-left:2px;}
 label .hint{display:block;font-size:11.5px;font-weight:400;color:var(--muted);margin-top:2px;}
-
-input[type="text"],select,textarea{
-  width:100%;padding:11px 14px;
-  border:1.5px solid rgba(255,255,255,.1);border-radius:9px;
-  font-family:'DM Sans',sans-serif;font-size:13.5px;
-  color:var(--white);background:rgba(255,255,255,.04);
-  transition:border-color .2s,box-shadow .2s;outline:none;appearance:none;
-}
-input[type="text"]:focus,select:focus,textarea:focus{
-  border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,210,230,.12);
-  background:rgba(0,210,230,.04);
-}
+input[type="text"],input[type="email"],select,textarea{width:100%;padding:11px 14px;border:1.5px solid rgba(255,255,255,.1);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--white);background:rgba(255,255,255,.04);transition:border-color .2s,box-shadow .2s;outline:none;appearance:none;}
+input[type="text"]:focus,input[type="email"]:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,210,230,.12);background:rgba(0,210,230,.04);}
+input.error,select.error{border-color:var(--pink)!important;box-shadow:0 0 0 3px rgba(233,30,140,.12)!important;}
+.field-error{color:var(--pink);font-size:11.5px;margin-top:5px;display:none;}
+.field-error.show{display:block;}
 select option{background:#1C2A3F;color:#fff;}
 textarea{resize:vertical;min-height:80px;}
 .sw{position:relative;}
 .sw::after{content:'▾';position:absolute;right:13px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted);font-size:14px;}
 
-/* ── TABELA TAMANHOS ──────────────────────────────────── */
+/* TABELA */
 .tab-btns{display:flex;gap:8px;margin-bottom:14px;}
-.tab-btn{
-  padding:7px 18px;border-radius:8px;
-  font-family:'Syne',sans-serif;font-size:11.5px;font-weight:700;
-  cursor:pointer;border:1.5px solid rgba(255,255,255,.12);
-  background:transparent;color:var(--muted);transition:all .2s;
-}
+.tab-btn{padding:7px 18px;border-radius:8px;font-family:'Syne',sans-serif;font-size:11.5px;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.12);background:transparent;color:var(--muted);transition:all .2s;}
 .tab-btn.active{background:var(--cyan);color:#0B1829;border-color:var(--cyan);}
 .size-wrap{overflow-x:auto;}
 .size-tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:400px;}
@@ -123,111 +70,60 @@ textarea{resize:vertical;min-height:80px;}
 .size-tbl tr:nth-child(even) td{background:rgba(255,255,255,.02);}
 .size-tbl .rl{text-align:left;color:var(--muted);font-size:11px;}
 
-/* ── ITEM PEDIDO ──────────────────────────────────────── */
-.item-card{
-  background:var(--surface2);border:1px solid var(--border);
-  border-radius:12px;padding:20px;margin-bottom:10px;
-}
+/* ITEM */
+.item-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:10px;}
 .item-card:last-child{margin-bottom:0;}
 .item-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.badge{
-  width:28px;height:28px;border-radius:50%;
-  background:var(--cyan);color:#0B1829;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-weight:800;font-size:12px;flex-shrink:0;
-}
+.badge{width:28px;height:28px;border-radius:50%;background:var(--cyan);color:#0B1829;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;flex-shrink:0;}
 .badge.opt{background:rgba(255,255,255,.09);color:var(--muted);}
 .i-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;}
 .i-sub{font-size:11.5px;color:var(--muted);}
-.opt-pill{
-  margin-left:auto;background:rgba(255,255,255,.05);
-  color:var(--muted);font-size:11px;font-weight:600;
-  padding:3px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);
-}
+.opt-pill{margin-left:auto;background:rgba(255,255,255,.05);color:var(--muted);font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 @media(max-width:480px){.grid2{grid-template-columns:1fr;}}
 
-/* PREVIEW DO PRODUTO */
-.prod-prev{
-  display:none;margin-top:8px;
-  background:rgba(0,210,230,.07);border:1px solid rgba(0,210,230,.2);
-  border-radius:8px;padding:10px 14px;
-  font-size:12.5px;line-height:1.6;color:var(--muted2);
-}
+/* PREVIEW PRODUTO */
+.prod-prev{display:none;margin-top:8px;background:rgba(0,210,230,.07);border:1px solid rgba(0,210,230,.2);border-radius:8px;padding:10px 14px;font-size:12.5px;line-height:1.6;color:var(--muted2);}
 .prod-prev.show{display:block;}
 .prod-prev .pc{color:var(--cyan);font-weight:700;font-family:'Syne',sans-serif;}
 .prod-prev .pp{color:var(--pink);font-weight:700;}
 
-/* ── RESUMO ───────────────────────────────────────────── */
-.resumo{
-  background:linear-gradient(135deg,#0D1F35,#0B2535);
-  border:1px solid rgba(0,210,230,.25);
-  border-radius:var(--radius);padding:22px 24px;
-  margin-bottom:14px;display:none;animation:fadeUp .4s ease;
-}
-.resumo h3{
-  font-family:'Syne',sans-serif;font-size:12px;font-weight:700;
-  text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:14px;
-}
+/* RESUMO */
+.resumo{background:linear-gradient(135deg,#0D1F35,#0B2535);border:1px solid rgba(0,210,230,.25);border-radius:var(--radius);padding:22px 24px;margin-bottom:14px;display:none;}
+.resumo h3{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:14px;}
 .rtbl{width:100%;border-collapse:collapse;font-size:12.5px;}
 .rtbl th{text-align:left;padding:6px 10px;color:var(--muted);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.08);}
 .rtbl td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted2);}
 .rtbl tr:last-child td{border-bottom:none;}
 .rtbl .val{color:var(--white);font-weight:500;}
-.resumo-total{
-  display:flex;justify-content:flex-end;align-items:center;gap:8px;
-  margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,210,230,.2);
-  font-family:'Syne',sans-serif;font-size:15px;font-weight:800;
-}
+.resumo-total{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,210,230,.2);font-family:'Syne',sans-serif;font-size:15px;font-weight:800;}
 .resumo-total .tv{color:var(--pink);}
 
-/* ── BOTÃO ────────────────────────────────────────────── */
-.btn{
-  width:100%;padding:15px;border-radius:10px;
-  font-family:'Syne',sans-serif;font-size:15px;font-weight:700;
-  cursor:pointer;border:none;letter-spacing:.5px;
-  transition:transform .15s,box-shadow .15s;
-}
+/* BOTAO */
+.btn{width:100%;padding:15px;border-radius:10px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border:none;letter-spacing:.5px;transition:transform .15s,box-shadow .15s;}
 .btn:active{transform:scale(.98);}
-.btn-primary{
-  background:var(--cyan);color:#0B1829;
-  box-shadow:0 6px 24px rgba(0,210,230,.25);
-}
+.btn-primary{background:var(--cyan);color:#0B1829;box-shadow:0 6px 24px rgba(0,210,230,.25);}
 .btn-primary:hover{box-shadow:0 8px 36px rgba(0,210,230,.45);}
 .btn-primary:disabled{background:#2a3a4a;color:var(--muted);box-shadow:none;cursor:not-allowed;}
 
-/* ── SUCESSO ──────────────────────────────────────────── */
-.success-screen{
-  display:none;text-align:center;
-  background:var(--surface);border:1px solid rgba(0,210,230,.2);
-  border-radius:var(--radius);padding:52px 24px;
-  animation:fadeUp .5s ease;
-}
+/* SUCESSO */
+.success-screen{display:none;text-align:center;background:var(--surface);border:1px solid rgba(0,210,230,.2);border-radius:var(--radius);padding:52px 24px;}
 .success-icon{font-size:56px;margin-bottom:16px;}
 .success-screen h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--cyan);margin-bottom:10px;}
 .success-screen p{color:var(--muted);font-size:14px;line-height:1.65;max-width:380px;margin:0 auto;}
 
-/* ── TOAST ────────────────────────────────────────────── */
-.toast{
-  position:fixed;bottom:28px;left:50%;
-  transform:translateX(-50%) translateY(16px);
-  background:#fff;color:#0B1829;
-  padding:13px 22px;border-radius:10px;
-  font-size:13.5px;font-weight:600;opacity:0;
-  pointer-events:none;transition:all .3s;
-  white-space:nowrap;z-index:999;
-  box-shadow:0 8px 32px rgba(0,0,0,.35);
-}
+/* TOAST */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background:#fff;color:#0B1829;padding:13px 22px;border-radius:10px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,.35);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-/* Loading spinner */
 .spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(11,24,41,.3);border-top-color:#0B1829;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px;}
 @keyframes spin{to{transform:rotate(360deg);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.card{animation:fadeUp .4s ease both;}
 </style>
 </head>
 <body>
 
-<!-- ══ HERO ══════════════════════════════════════════════ -->
 <div class="hero">
   <div class="hero-chip">👕 TOTVS Oeste · 2026</div>
   <h1>Pedido de<br><span>Camisetas</span></h1>
@@ -240,31 +136,30 @@ textarea{resize:vertical;min-height:80px;}
 
 <div class="container">
 
-  <!-- TELA DE SUCESSO (oculta inicialmente) -->
+  <!-- TELA DE SUCESSO -->
   <div class="success-screen" id="success">
     <div class="success-icon">✅</div>
     <h2>Pedido enviado!</h2>
-    <p>Seu pedido foi registrado com sucesso. As camisetas serão enviadas para sua unidade após a confecção. Qualquer dúvida: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="630d0217020f0a024d10020d17020d0223170c1715104d000c0e4d0111">[email&#160;protected]</a></strong></p>
+    <p>Seu pedido foi registrado com sucesso. As camisetas serão enviadas para sua unidade após a confecção.<br><br>Dúvidas: <strong>natalia.santana@totvs.com.br</strong></p>
   </div>
 
   <!-- FORMULÁRIO -->
   <div id="form-area">
 
-    <!-- INSTRUÇÕES -->
     <div class="alert">
       <strong>⚠️ Leia antes de preencher:</strong>
       <ul>
-        <li>Consulte a <strong>Tabela de Numeração</strong> abaixo antes de escolher o tamanho.</li>
+        <li>Consulte a <strong>Tabela de Numeração</strong> antes de escolher o tamanho.</li>
         <li>Masculino e feminino possuem tabelas <strong>diferentes</strong>.</li>
         <li>Selecione o produto pelo <strong>código do catálogo</strong>.</li>
         <li>Todo o pedido deve ser feito neste único formulário. <strong>Não haverá trocas.</strong></li>
         <li>Valor acima de R$80,00 será descontado em <strong>3× no pagamento</strong>.</li>
-        <li>Tamanhos maiores: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355b544154595c541b46545b41545b5475415a4143461b565a581b5747">[email&#160;protected]</a></strong></li>
+        <li>Tamanhos maiores: <strong>natalia.santana@totvs.com.br</strong></li>
       </ul>
     </div>
 
-    <!-- TABELA DE NUMERAÇÃO -->
-    <div class="card" style="animation-delay:.04s;">
+    <!-- TABELA -->
+    <div class="card">
       <div class="section-label">📐 Tabela de Numeração</div>
       <div class="tab-btns">
         <button class="tab-btn active" onclick="showTab('fem',this)">👩 Feminino (Babylook)</button>
@@ -294,28 +189,44 @@ textarea{resize:vertical;min-height:80px;}
     </div>
 
     <!-- DADOS DO SOLICITANTE -->
-    <div class="card" style="animation-delay:.08s;">
+    <div class="card">
       <div class="section-label">👤 Dados do Solicitante</div>
+
       <div class="field">
         <label>Nome completo <span class="req">*</span></label>
-        <input type="text" id="nome" placeholder="Ex: Maria Fernanda Silva" required/>
+        <input type="text" id="nome" placeholder="Ex: Maria Fernanda Silva"/>
+        <div class="field-error" id="err-nome">Por favor, informe seu nome completo.</div>
       </div>
+
+      <div class="field">
+        <label>E-mail TOTVS <span class="req">*</span>
+          <span class="hint">Utilize seu e-mail corporativo @totvs.com.br</span>
+        </label>
+        <input type="email" id="email" placeholder="seunome@totvs.com.br"/>
+        <div class="field-error" id="err-email">Informe um e-mail válido com @totvs.com.br</div>
+      </div>
+
       <div class="field">
         <label>Unidade de Atuação <span class="req">*</span></label>
         <div class="sw">
-          <select id="unidade" required>
+          <select id="unidade">
             <option value="" disabled selected>Selecione sua unidade…</option>
-            <option>RIO PRETO</option><option>BAURU</option><option>MS</option>
-            <option>LONDRINA</option><option>CASCAVEL</option><option>MODA</option>
+            <option>RIO PRETO</option>
+            <option>BAURU</option>
+            <option>MS</option>
+            <option>LONDRINA</option>
+            <option>CASCAVEL</option>
+            <option>MODA</option>
           </select>
         </div>
+        <div class="field-error" id="err-unidade">Selecione sua unidade de atuação.</div>
       </div>
     </div>
 
-    <!-- ITENS -->
-    <div class="card" style="animation-delay:.12s;">
+    <!-- ITENS DO PEDIDO -->
+    <div class="card">
       <div class="section-label">🛒 Itens do Pedido</div>
-      <div id="itens"></div>
+      <div id="itens-container"></div>
     </div>
 
     <!-- RESUMO -->
@@ -325,11 +236,11 @@ textarea{resize:vertical;min-height:80px;}
         <thead><tr><th>#</th><th>Produto</th><th>Tamanho</th><th>Qtd</th><th>Subtotal</th></tr></thead>
         <tbody id="resumo-body"></tbody>
       </table>
-      <div class="resumo-total">Total estimado: <span class="tv" id="total">R$0,00</span></div>
+      <div class="resumo-total">Total estimado: <span class="tv" id="total-val">R$0,00</span></div>
     </div>
 
     <!-- OBSERVAÇÕES -->
-    <div class="card" style="animation-delay:.16s;">
+    <div class="card">
       <div class="section-label">📝 Observações</div>
       <div class="field">
         <label>Informações adicionais
@@ -340,230 +251,319 @@ textarea{resize:vertical;min-height:80px;}
     </div>
 
     <!-- ENVIAR -->
-    <div class="card" style="animation-delay:.19s;padding:20px 26px;">
+    <div class="card" style="padding:20px 26px;">
       <button class="btn btn-primary" id="btn-enviar" onclick="enviarPedido()">✅ Enviar Pedido</button>
     </div>
 
   </div><!-- /form-area -->
-</div><!-- /container -->
+</div>
 
 <div class="toast" id="toast"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ══════════════════════════════════════════════════════════════
-//  ⚠️  IMPORTANTE: substitua SUA_URL_AQUI pela URL do Apps Script
-//  após implantar o backend (arquivo backend_pedidos.gs)
-// ══════════════════════════════════════════════════════════════
+<!-- iframe oculto para submissão sem CORS -->
+<iframe id="hidden-iframe" name="hidden-iframe" style="display:none;"></iframe>
+<form id="hidden-form" method="POST" target="hidden-iframe" style="display:none;">
+  <input type="hidden" id="hidden-dados" name="dados"/>
+</form>
+
+<script>
+// ── CONFIG — substitua pela sua URL do Apps Script ──────────────
 var API_URL = 'https://script.google.com/a/macros/totvs.com.br/s/AKfycbyRIKf2I9wPTZXBZSI5DU1-RswgyfVhfNpCzKWk-Ez0lxTTSLXk6e8_yA-1SNyV0STpUg/exec';
 
-// ── CATÁLOGO ──────────────────────────────────────────────────
+// ── CATÁLOGO ───────────────────────────────────────────────────
 var CAT = [
-  {cod:'001',tipo:'Babylook',        estampa:'VALORES TOTVS', cor:'Marinho',   preco:42},
-  {cod:'002',tipo:'Camiseta',        estampa:'VALORES TOTVS', cor:'Marinho',   preco:42},
-  {cod:'003',tipo:'Babylook',        estampa:'UNIVERSO',       cor:'Marinho',   preco:42},
-  {cod:'004',tipo:'Camiseta',        estampa:'UNIVERSO',       cor:'Marinho',   preco:42},
-  {cod:'005',tipo:'Babylook',        estampa:'TOTVS OESTE',   cor:'Azul Claro',preco:42},
-  {cod:'006',tipo:'Camiseta',        estampa:'TOTVS OESTE',   cor:'Azul Claro',preco:42},
-  {cod:'007',tipo:'Babylook',        estampa:'TOTVS OESTE',   cor:'Pink',      preco:42},
-  {cod:'008',tipo:'Camiseta',        estampa:'TOTVS OESTE',   cor:'Pink',      preco:42},
-  {cod:'009',tipo:'Babylook',        estampa:'TOTVS OESTE',   cor:'Marinho',   preco:42},
-  {cod:'010',tipo:'Camiseta',        estampa:'TOTVS OESTE',   cor:'Marinho',   preco:42},
-  {cod:'011',tipo:'Babylook',        estampa:'#SOMOSTOTVS',   cor:'Branco',    preco:42},
-  {cod:'012',tipo:'Camiseta',        estampa:'#SOMOSTOTVS',   cor:'Branco',    preco:42},
-  {cod:'013',tipo:'Babylook',        estampa:'#SOMOSTOTVS',   cor:'Preto',     preco:42},
-  {cod:'014',tipo:'Camiseta',        estampa:'#SOMOSTOTVS',   cor:'Preto',     preco:42},
-  {cod:'015',tipo:'Babylook',        estampa:'#SOMOSTOTVS',   cor:'Marinho',   preco:42},
-  {cod:'016',tipo:'Camiseta',        estampa:'#SOMOSTOTVS',   cor:'Marinho',   preco:42},
-  {cod:'017',tipo:'Babylook',        estampa:'FREQUÊNCIA',    cor:'Preto',     preco:42},
-  {cod:'018',tipo:'Camiseta',        estampa:'FREQUÊNCIA',    cor:'Preto',     preco:42},
-  {cod:'019',tipo:'Babylook',        estampa:'FREQUÊNCIA',    cor:'Branco',    preco:42},
-  {cod:'020',tipo:'Camiseta',        estampa:'FREQUÊNCIA',    cor:'Branco',    preco:42},
-  {cod:'021',tipo:'Babylook',        estampa:'FREQUÊNCIA',    cor:'Marinho',   preco:42},
-  {cod:'022',tipo:'Camiseta',        estampa:'FREQUÊNCIA',    cor:'Marinho',   preco:42},
-  {cod:'023',tipo:'Babylook Polo MF',estampa:'POLO TOTVS',    cor:'Preto',     preco:55},
-  {cod:'024',tipo:'Polo Malha Fria', estampa:'POLO TOTVS',    cor:'Preto',     preco:55},
-  {cod:'025',tipo:'Babylook Polo MF',estampa:'POLO TOTVS',    cor:'Marinho',   preco:55},
-  {cod:'026',tipo:'Polo Malha Fria', estampa:'POLO TOTVS',    cor:'Marinho',   preco:55},
-  {cod:'027',tipo:'Babylook Polo MF',estampa:'POLO TOTVS',    cor:'Branco',    preco:55},
-  {cod:'028',tipo:'Polo Malha Fria', estampa:'POLO TOTVS',    cor:'Branco',    preco:55},
-  {cod:'029',tipo:'Babylook Polo Piq.',estampa:'POLO TOTVS',  cor:'Branco',    preco:62},
-  {cod:'030',tipo:'Polo Piquet',     estampa:'POLO TOTVS',    cor:'Branco',    preco:62},
-  {cod:'031',tipo:'Babylook Polo Piq.',estampa:'POLO TOTVS',  cor:'Marinho',   preco:62},
-  {cod:'032',tipo:'Polo Piquet',     estampa:'POLO TOTVS',    cor:'Marinho',   preco:62},
-  {cod:'033',tipo:'Babylook Polo Piq.',estampa:'POLO TOTVS',  cor:'Preto',     preco:62},
-  {cod:'034',tipo:'Polo Piquet',     estampa:'POLO TOTVS',    cor:'Preto',     preco:62},
+  {cod:'001',tipo:'Babylook',           estampa:'VALORES TOTVS', cor:'Marinho',    preco:42},
+  {cod:'002',tipo:'Camiseta',           estampa:'VALORES TOTVS', cor:'Marinho',    preco:42},
+  {cod:'003',tipo:'Babylook',           estampa:'UNIVERSO',      cor:'Marinho',    preco:42},
+  {cod:'004',tipo:'Camiseta',           estampa:'UNIVERSO',      cor:'Marinho',    preco:42},
+  {cod:'005',tipo:'Babylook',           estampa:'TOTVS OESTE',   cor:'Azul Claro', preco:42},
+  {cod:'006',tipo:'Camiseta',           estampa:'TOTVS OESTE',   cor:'Azul Claro', preco:42},
+  {cod:'007',tipo:'Babylook',           estampa:'TOTVS OESTE',   cor:'Pink',       preco:42},
+  {cod:'008',tipo:'Camiseta',           estampa:'TOTVS OESTE',   cor:'Pink',       preco:42},
+  {cod:'009',tipo:'Babylook',           estampa:'TOTVS OESTE',   cor:'Marinho',    preco:42},
+  {cod:'010',tipo:'Camiseta',           estampa:'TOTVS OESTE',   cor:'Marinho',    preco:42},
+  {cod:'011',tipo:'Babylook',           estampa:'#SOMOSTOTVS',   cor:'Branco',     preco:42},
+  {cod:'012',tipo:'Camiseta',           estampa:'#SOMOSTOTVS',   cor:'Branco',     preco:42},
+  {cod:'013',tipo:'Babylook',           estampa:'#SOMOSTOTVS',   cor:'Preto',      preco:42},
+  {cod:'014',tipo:'Camiseta',           estampa:'#SOMOSTOTVS',   cor:'Preto',      preco:42},
+  {cod:'015',tipo:'Babylook',           estampa:'#SOMOSTOTVS',   cor:'Marinho',    preco:42},
+  {cod:'016',tipo:'Camiseta',           estampa:'#SOMOSTOTVS',   cor:'Marinho',    preco:42},
+  {cod:'017',tipo:'Babylook',           estampa:'FREQUENCIA',    cor:'Preto',      preco:42},
+  {cod:'018',tipo:'Camiseta',           estampa:'FREQUENCIA',    cor:'Preto',      preco:42},
+  {cod:'019',tipo:'Babylook',           estampa:'FREQUENCIA',    cor:'Branco',     preco:42},
+  {cod:'020',tipo:'Camiseta',           estampa:'FREQUENCIA',    cor:'Branco',     preco:42},
+  {cod:'021',tipo:'Babylook',           estampa:'FREQUENCIA',    cor:'Marinho',    preco:42},
+  {cod:'022',tipo:'Camiseta',           estampa:'FREQUENCIA',    cor:'Marinho',    preco:42},
+  {cod:'023',tipo:'Babylook Polo MF',   estampa:'POLO TOTVS',    cor:'Preto',      preco:55},
+  {cod:'024',tipo:'Polo Malha Fria',    estampa:'POLO TOTVS',    cor:'Preto',      preco:55},
+  {cod:'025',tipo:'Babylook Polo MF',   estampa:'POLO TOTVS',    cor:'Marinho',    preco:55},
+  {cod:'026',tipo:'Polo Malha Fria',    estampa:'POLO TOTVS',    cor:'Marinho',    preco:55},
+  {cod:'027',tipo:'Babylook Polo MF',   estampa:'POLO TOTVS',    cor:'Branco',     preco:55},
+  {cod:'028',tipo:'Polo Malha Fria',    estampa:'POLO TOTVS',    cor:'Branco',     preco:55},
+  {cod:'029',tipo:'Babylook Polo Piq.', estampa:'POLO TOTVS',    cor:'Branco',     preco:62},
+  {cod:'030',tipo:'Polo Piquet',        estampa:'POLO TOTVS',    cor:'Branco',     preco:62},
+  {cod:'031',tipo:'Babylook Polo Piq.', estampa:'POLO TOTVS',    cor:'Marinho',    preco:62},
+  {cod:'032',tipo:'Polo Piquet',        estampa:'POLO TOTVS',    cor:'Marinho',    preco:62},
+  {cod:'033',tipo:'Babylook Polo Piq.', estampa:'POLO TOTVS',    cor:'Preto',      preco:62},
+  {cod:'034',tipo:'Polo Piquet',        estampa:'POLO TOTVS',    cor:'Preto',      preco:62}
 ];
 
 var TAM_F = ['PP','P','M','G','GG','EG','G1','G2'];
 var TAM_M = ['PP','P','M','G','GG','ES','G1','G2','G3'];
 var QTDS  = [1,2,3,4,5,6,7,8,9,10];
 
-// ── RENDER ITENS ──────────────────────────────────────────────
-function renderItens(){
-  var c='', grupos=[
-    {lbl:'── Camisetas — R$42,00 ──',r:[1,22]},
-    {lbl:'── Polo Malha Fria — R$55,00 ──',r:[23,28]},
-    {lbl:'── Polo Piquet — R$62,00 ──',r:[29,34]},
+// ── RENDER ITENS ───────────────────────────────────────────────
+function renderItens() {
+  var grupos = [
+    {lbl:'── Camisetas — R$42,00 ──', de:1, ate:22},
+    {lbl:'── Polo Malha Fria — R$55,00 ──', de:23, ate:28},
+    {lbl:'── Polo Piquet — R$62,00 ──', de:29, ate:34}
   ];
 
-  for(var i=1;i<=5;i++){
-    var ob=i===1;
-    c+='<div class="item-card">';
-    c+='<div class="item-header">';
-    c+='<div class="badge'+(ob?'':' opt')+'">'+i+'</div>';
-    c+='<div><div class="i-title">Item '+i+'</div><div class="i-sub">'+(ob?'Obrigatório':'Opcional')+'</div></div>';
-    if(!ob) c+='<span class="opt-pill">Opcional</span>';
-    c+='</div>';
+  var html = '';
+  for (var i = 1; i <= 5; i++) {
+    var ob = (i === 1);
+    html += '<div class="item-card">';
+    html += '<div class="item-header">';
+    html += '<div class="badge' + (ob ? '' : ' opt') + '">' + i + '</div>';
+    html += '<div><div class="i-title">Item ' + i + '</div>';
+    html += '<div class="i-sub">' + (ob ? 'Obrigatório' : 'Opcional') + '</div></div>';
+    if (!ob) html += '<span class="opt-pill">Opcional</span>';
+    html += '</div>';
 
-    // Produto
-    c+='<div class="field"><label>Produto — Código / Tipo / Estampa / Cor'+(ob?'<span class="req"> *</span>':'')+'</label>';
-    c+='<div class="sw"><select id="prod'+i+'" onchange="onProd('+i+')">';
-    c+='<option value="">— Selecione um produto —</option>';
-    grupos.forEach(function(g){
-      c+='<option disabled>'+g.lbl+'</option>';
-      CAT.forEach(function(p){
-        var n=parseInt(p.cod);
-        if(n>=g.r[0]&&n<=g.r[1])
-          c+='<option value="'+p.cod+'">Cod.'+p.cod+' | '+p.tipo+' | '+p.estampa+' | '+p.cor+' | R$'+p.preco+',00</option>';
-      });
-    });
-    c+='</select></div>';
-    c+='<div class="prod-prev" id="prev'+i+'"></div></div>';
+    // Select produto
+    html += '<div class="field">';
+    html += '<label>Produto' + (ob ? '<span class="req"> *</span>' : '') + '</label>';
+    html += '<div class="sw"><select id="prod' + i + '" onchange="onProd(' + i + ')">';
+    html += '<option value="">— Selecione um produto —</option>';
+    for (var g = 0; g < grupos.length; g++) {
+      html += '<option disabled>' + grupos[g].lbl + '</option>';
+      for (var c = 0; c < CAT.length; c++) {
+        var n = parseInt(CAT[c].cod);
+        if (n >= grupos[g].de && n <= grupos[g].ate) {
+          html += '<option value="' + CAT[c].cod + '">';
+          html += 'Cod.' + CAT[c].cod + ' | ' + CAT[c].tipo + ' | ' + CAT[c].estampa + ' | ' + CAT[c].cor + ' | R$' + CAT[c].preco + ',00';
+          html += '</option>';
+        }
+      }
+    }
+    html += '</select></div>';
+    html += '<div class="prod-prev" id="prev' + i + '"></div>';
+    html += '</div>';
 
-    // Tamanho + Qtd
-    c+='<div class="grid2">';
-    c+='<div class="field"><label id="tlbl'+i+'">Tamanho'+(ob?'<span class="req"> *</span>':'')+'</label>';
-    c+='<div class="sw"><select id="tam'+i+'" onchange="atualizarResumo()"><option value="">— Selecione o produto primeiro —</option></select></div></div>';
-    c+='<div class="field"><label>Quantidade'+(ob?'<span class="req"> *</span>':'')+'</label>';
-    c+='<div class="sw"><select id="qtd'+i+'" onchange="atualizarResumo()"><option value="">—</option>';
-    QTDS.forEach(function(q){c+='<option value="'+q+'">'+q+'</option>';});
-    c+='</select></div></div>';
-    c+='</div></div>';
+    // Grid tamanho + qtd
+    html += '<div class="grid2">';
+    html += '<div class="field">';
+    html += '<label id="tlbl' + i + '">Tamanho' + (ob ? '<span class="req"> *</span>' : '') + '</label>';
+    html += '<div class="sw"><select id="tam' + i + '" onchange="atualizarResumo()">';
+    html += '<option value="">— Selecione o produto primeiro —</option>';
+    html += '</select></div></div>';
+
+    html += '<div class="field">';
+    html += '<label>Quantidade' + (ob ? '<span class="req"> *</span>' : '') + '</label>';
+    html += '<div class="sw"><select id="qtd' + i + '" onchange="atualizarResumo()">';
+    html += '<option value="">—</option>';
+    for (var q = 0; q < QTDS.length; q++) {
+      html += '<option value="' + QTDS[q] + '">' + QTDS[q] + '</option>';
+    }
+    html += '</select></div></div>';
+    html += '</div>'; // grid2
+    html += '</div>'; // item-card
   }
-  document.getElementById('itens').innerHTML=c;
+
+  document.getElementById('itens-container').innerHTML = html;
 }
 
-// ── PRODUTO SELECIONADO ───────────────────────────────────────
-function onProd(i){
-  var cod=document.getElementById('prod'+i).value;
-  var prev=document.getElementById('prev'+i);
-  var tsel=document.getElementById('tam'+i);
-  var tlbl=document.getElementById('tlbl'+i);
-  var ob=i===1;
+// ── PRODUTO SELECIONADO ────────────────────────────────────────
+function onProd(i) {
+  var sel  = document.getElementById('prod' + i);
+  var cod  = sel ? sel.value : '';
+  var prev = document.getElementById('prev' + i);
+  var tsel = document.getElementById('tam' + i);
+  var tlbl = document.getElementById('tlbl' + i);
+  var ob   = (i === 1);
 
-  if(!cod){
-    prev.className='prod-prev';
-    tsel.innerHTML='<option value="">— Selecione o produto primeiro —</option>';
-    atualizarResumo(); return;
+  if (!cod) {
+    if (prev) prev.className = 'prod-prev';
+    if (tsel) tsel.innerHTML = '<option value="">— Selecione o produto primeiro —</option>';
+    atualizarResumo();
+    return;
   }
-  var p=CAT.find(function(x){return x.cod===cod;});
-  if(!p) return;
 
-  var dot={Marinho:'🔵','Azul Claro':'🩵',Pink:'🩷',Branco:'⚪',Preto:'⚫'}[p.cor]||'🎨';
-  prev.innerHTML='<span class="pc">Cod.'+p.cod+'</span> · '+p.tipo+' · '+p.estampa+' · '+dot+' '+p.cor+' · <span class="pp">R$'+p.preco+',00</span>';
-  prev.className='prod-prev show';
+  var p = null;
+  for (var c = 0; c < CAT.length; c++) {
+    if (CAT[c].cod === cod) { p = CAT[c]; break; }
+  }
+  if (!p) return;
 
-  var fem=p.tipo.toLowerCase().indexOf('babylook')!==-1;
-  var tams=fem?TAM_F:TAM_M;
-  tlbl.innerHTML=(fem?'Tamanho Feminino':'Tamanho Masculino')+(ob?'<span class="req"> *</span>':'');
-  tsel.innerHTML='<option value="">— Selecione —</option>';
-  tams.forEach(function(t){tsel.innerHTML+='<option value="'+t+'">'+t+'</option>';});
+  var dots = {Marinho:'🔵','Azul Claro':'🩵',Pink:'🩷',Branco:'⚪',Preto:'⚫'};
+  var dot = dots[p.cor] || '🎨';
+  if (prev) {
+    prev.innerHTML = '<span class="pc">Cod.' + p.cod + '</span> &middot; ' + p.tipo + ' &middot; ' + p.estampa + ' &middot; ' + dot + ' ' + p.cor + ' &middot; <span class="pp">R$' + p.preco + ',00</span>';
+    prev.className = 'prod-prev show';
+  }
+
+  var fem  = p.tipo.toLowerCase().indexOf('babylook') !== -1;
+  var tams = fem ? TAM_F : TAM_M;
+  if (tlbl) tlbl.innerHTML = (fem ? 'Tamanho Feminino' : 'Tamanho Masculino') + (ob ? '<span class="req"> *</span>' : '');
+  if (tsel) {
+    tsel.innerHTML = '<option value="">— Selecione —</option>';
+    for (var t = 0; t < tams.length; t++) {
+      tsel.innerHTML += '<option value="' + tams[t] + '">' + tams[t] + '</option>';
+    }
+  }
   atualizarResumo();
 }
 
-// ── RESUMO ────────────────────────────────────────────────────
-function atualizarResumo(){
-  var tbody=document.getElementById('resumo-body');
-  var card=document.getElementById('resumo');
-  tbody.innerHTML='';
-  var tem=false, total=0;
-  for(var i=1;i<=5;i++){
-    var cod=(document.getElementById('prod'+i)||{}).value;
-    var tam=(document.getElementById('tam'+i)||{}).value;
-    var qtd=(document.getElementById('qtd'+i)||{}).value;
-    if(!cod||!tam||!qtd) continue;
-    var p=CAT.find(function(x){return x.cod===cod;});
-    if(!p) continue;
-    tem=true;
-    var sub=p.preco*parseInt(qtd); total+=sub;
-    var tr=document.createElement('tr');
-    tr.innerHTML='<td>'+i+'</td><td class="val">Cod.'+p.cod+' '+p.estampa+' '+p.cor+'</td><td>'+tam+'</td><td>'+qtd+'×</td><td class="val">R$'+sub+',00</td>';
+// ── RESUMO ─────────────────────────────────────────────────────
+function atualizarResumo() {
+  var tbody = document.getElementById('resumo-body');
+  var card  = document.getElementById('resumo');
+  if (!tbody || !card) return;
+  tbody.innerHTML = '';
+  var tem = false, total = 0;
+
+  for (var i = 1; i <= 5; i++) {
+    var pEl = document.getElementById('prod' + i);
+    var tEl = document.getElementById('tam' + i);
+    var qEl = document.getElementById('qtd' + i);
+    var cod = pEl ? pEl.value : '';
+    var tam = tEl ? tEl.value : '';
+    var qtd = qEl ? qEl.value : '';
+    if (!cod || !tam || !qtd) continue;
+
+    var p = null;
+    for (var c = 0; c < CAT.length; c++) {
+      if (CAT[c].cod === cod) { p = CAT[c]; break; }
+    }
+    if (!p) continue;
+
+    tem = true;
+    var sub = p.preco * parseInt(qtd);
+    total  += sub;
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + i + '</td><td class="val">Cod.' + p.cod + ' ' + p.estampa + ' ' + p.cor + '</td><td>' + tam + '</td><td>' + qtd + 'x</td><td class="val">R$' + sub + ',00</td>';
     tbody.appendChild(tr);
   }
-  card.style.display=tem?'block':'none';
-  document.getElementById('total').textContent='R$'+total+',00';
+
+  card.style.display = tem ? 'block' : 'none';
+  var tv = document.getElementById('total-val');
+  if (tv) tv.textContent = 'R$' + total + ',00';
 }
 
-// ── ENVIAR ────────────────────────────────────────────────────
-function enviarPedido(){
-  var nome=document.getElementById('nome').value.trim();
-  var unidade=document.getElementById('unidade').value;
-  var prod1=document.getElementById('prod1').value;
-  var tam1=document.getElementById('tam1').value;
-  var qtd1=document.getElementById('qtd1').value;
+// ── VALIDAÇÃO ──────────────────────────────────────────────────
+function validar() {
+  var ok = true;
 
-  if(!nome||!unidade||!prod1||!tam1||!qtd1){
-    toast('⚠️ Preencha todos os campos obrigatórios (*)'); return;
+  function chk(id, errId, cond) {
+    var el  = document.getElementById(id);
+    var err = document.getElementById(errId);
+    if (!el) return;
+    if (!cond(el.value)) {
+      el.classList.add('error');
+      if (err) err.classList.add('show');
+      ok = false;
+    } else {
+      el.classList.remove('error');
+      if (err) err.classList.remove('show');
+    }
+  }
+
+  chk('nome',    'err-nome',    function(v){ return v.trim().length >= 3; });
+  chk('email',   'err-email',   function(v){ return v.trim().toLowerCase().indexOf('@totvs.com.br') !== -1; });
+  chk('unidade', 'err-unidade', function(v){ return v !== ''; });
+
+  // Item 1 obrigatorio
+  var p1 = document.getElementById('prod1');
+  var t1 = document.getElementById('tam1');
+  var q1 = document.getElementById('qtd1');
+  if (!p1 || !p1.value) { if(p1) p1.classList.add('error'); ok = false; toast('⚠️ Selecione o produto do Item 1'); }
+  if (!t1 || !t1.value) { if(t1) t1.classList.add('error'); ok = false; }
+  if (!q1 || !q1.value) { if(q1) q1.classList.add('error'); ok = false; }
+
+  return ok;
+}
+
+// ── ENVIAR ─────────────────────────────────────────────────────
+function enviarPedido() {
+  if (!validar()) {
+    toast('⚠️ Corrija os campos em vermelho antes de enviar.');
+    return;
   }
 
   // Monta payload
-  var payload={nome:nome, unidade:unidade, obs:document.getElementById('obs').value};
-  for(var i=1;i<=5;i++){
-    var cod=(document.getElementById('prod'+i)||{}).value;
-    var tam=(document.getElementById('tam'+i)||{}).value;
-    var qtd=(document.getElementById('qtd'+i)||{}).value;
-    if(!cod||!tam||!qtd){payload['item'+i]={};continue;}
-    var p=CAT.find(function(x){return x.cod===cod;});
-    payload['item'+i]={cod:p.cod,tipo:p.tipo,estampa:p.estampa,cor:p.cor,tamanho:tam,qtd:parseInt(qtd),preco:p.preco};
+  var payload = {
+    nome:    document.getElementById('nome').value.trim(),
+    email:   document.getElementById('email').value.trim(),
+    unidade: document.getElementById('unidade').value,
+    obs:     document.getElementById('obs').value.trim()
+  };
+
+  for (var i = 1; i <= 5; i++) {
+    var pEl = document.getElementById('prod' + i);
+    var tEl = document.getElementById('tam' + i);
+    var qEl = document.getElementById('qtd' + i);
+    var cod = pEl ? pEl.value : '';
+    var tam = tEl ? tEl.value : '';
+    var qtd = qEl ? qEl.value : '';
+
+    if (!cod || !tam || !qtd) { payload['item' + i] = {}; continue; }
+
+    var p = null;
+    for (var c = 0; c < CAT.length; c++) {
+      if (CAT[c].cod === cod) { p = CAT[c]; break; }
+    }
+    payload['item' + i] = p ? {cod:p.cod, tipo:p.tipo, estampa:p.estampa, cor:p.cor, tamanho:tam, qtd:parseInt(qtd), preco:p.preco} : {};
   }
 
   // Desabilita botão
-  var btn=document.getElementById('btn-enviar');
-  btn.disabled=true;
-  btn.innerHTML='<span class="spinner"></span>Enviando…';
+  var btn = document.getElementById('btn-enviar');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Enviando…';
 
-  // Envia via iframe oculto -- bypass total de CORS
-  var iframe=document.getElementById('hidden-iframe');
-  if(!iframe){
-    iframe=document.createElement('iframe');
-    iframe.id='hidden-iframe';
-    iframe.name='hidden-iframe';
-    iframe.style.display='none';
-    document.body.appendChild(iframe);
-  }
-  var frm=document.getElementById('hidden-form');
-  if(!frm){
-    frm=document.createElement('form');
-    frm.id='hidden-form';
-    frm.method='POST';
-    frm.target='hidden-iframe';
-    frm.style.display='none';
-    document.body.appendChild(frm);
-  }
-  frm.action=API_URL;
-  frm.innerHTML='';
-  var inp=document.createElement('input');
-  inp.type='hidden'; inp.name='dados'; inp.value=JSON.stringify(payload);
-  frm.appendChild(inp);
+  // Injeta dados no form oculto e submete
+  document.getElementById('hidden-dados').value = JSON.stringify(payload);
+  document.getElementById('hidden-form').action = API_URL;
 
-  function mostrarSucesso(){
-    if(document.getElementById('form-area').style.display==='none') return;
-    document.getElementById('form-area').style.display='none';
-    document.getElementById('success').style.display='block';
-    window.scrollTo({top:0,behavior:'smooth'});
+  // Monitora o iframe para detectar resposta
+  var iframe = document.getElementById('hidden-iframe');
+  var enviado = false;
+
+  function sucesso() {
+    if (enviado) return;
+    enviado = true;
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('success').style.display  = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
   }
 
-  iframe.onload=mostrarSucesso;
-  setTimeout(mostrarSucesso, 3500);
-  frm.submit();
+  iframe.onload = sucesso;
+  setTimeout(sucesso, 4000); // fallback após 4s
+
+  document.getElementById('hidden-form').submit();
 }
 
-// ── TABS ──────────────────────────────────────────────────────
-function showTab(id,btn){
-  document.getElementById('tab-fem').style.display=id==='fem'?'':'none';
-  document.getElementById('tab-mas').style.display=id==='mas'?'':'none';
-  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+// ── TABS ────────────────────────────────────────────────────────
+function showTab(id, btn) {
+  document.getElementById('tab-fem').style.display = id === 'fem' ? '' : 'none';
+  document.getElementById('tab-mas').style.display = id === 'mas' ? '' : 'none';
+  var btns = document.querySelectorAll('.tab-btn');
+  for (var b = 0; b < btns.length; b++) btns[b].classList.remove('active');
   btn.classList.add('active');
 }
 
-// ── TOAST ───�
+// ── TOAST ────────────────────────────────────────────────────────
+function toast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3500);
+}
+
+// ── INIT ─────────────────────────────────────────────────────────
+window.onload = function() {
+  renderItens();
+};
+</script>
+</body>
+</html>

@@ -127,6 +127,14 @@ textarea{resize:vertical;min-height:80px;}
 .btn-primary:hover{box-shadow:0 8px 36px rgba(0,210,230,.4);}
 .btn-primary:disabled{background:#2a3a4a;color:var(--muted);box-shadow:none;cursor:not-allowed;}
 
+/* ── TELA DE ENVIANDO (NOVA) ── */
+.sending-screen{display:none;text-align:center;background:var(--surface);border:1px solid rgba(0,210,230,.2);border-radius:var(--radius);padding:52px 24px;margin-bottom:14px;}
+.sending-screen .spin-big{width:52px;height:52px;border:3px solid rgba(0,210,230,.15);border-top-color:var(--cyan);border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 20px;}
+.sending-screen h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--cyan);margin-bottom:10px;}
+.sending-screen p{color:var(--muted);font-size:13.5px;line-height:1.7;max-width:340px;margin:0 auto;}
+.progress-wrap{width:100%;max-width:300px;height:4px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin:20px auto 0;}
+.progress-bar{height:100%;background:var(--cyan);border-radius:999px;width:0%;transition:width 45s linear;}
+
 /* SUCESSO */
 .success-screen{display:none;text-align:center;background:var(--surface);border:1px solid rgba(0,210,230,.2);border-radius:var(--radius);padding:52px 24px;}
 .success-icon{font-size:56px;margin-bottom:16px;}
@@ -188,6 +196,15 @@ textarea{resize:vertical;min-height:80px;}
 
 <div class="container">
 
+  <!-- ── TELA ENVIANDO (NOVA) ── -->
+  <div class="sending-screen" id="sending-screen">
+    <div class="spin-big"></div>
+    <h3>Registrando seu pedido…</h3>
+    <p>Aguarde, isso pode levar até <strong>30 segundos</strong>.<br>Não feche nem recarregue esta página.</p>
+    <div class="progress-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+  </div>
+
+  <!-- SUCESSO -->
   <div class="success-screen" id="success">
     <div class="success-icon">✅</div>
     <h2>Pedido enviado!</h2>
@@ -320,8 +337,7 @@ textarea{resize:vertical;min-height:80px;}
     <div class="card">
       <div class="section-label">📝 Observações</div>
       <div class="field">
-        <label>Informações adicionais
-        </label>
+        <label>Informações adicionais</label>
         <textarea id="obs" placeholder="Descreva aqui…"></textarea>
       </div>
     </div>
@@ -383,16 +399,10 @@ var CAT = [
 var TAM_F = ['PP','P','M','G','GG','EG','G1','G2'];
 var TAM_M = ['PP','P','M','G','GG','ES','G1','G2','G3'];
 var carrinho = [];
-
 var COR_DOTS = {Marinho:'#1a3a6e','Azul Claro':'#4ab4e6',Pink:'#e91e8c',Branco:'#f0f0f0',Preto:'#222222'};
 
-// ── INIT ──────────────────────────────────────────────────────
-window.onload = function() {
-  initProdutos();
-  renderCarrinho();
-};
+window.onload = function() { initProdutos(); renderCarrinho(); };
 
-// ── POPULA SELECT PRODUTOS ─────────────────────────────────────
 function initProdutos() {
   var sel = document.getElementById('sel-prod');
   var grupos = [
@@ -416,28 +426,20 @@ function initProdutos() {
   });
 }
 
-// ── PRODUTO SELECIONADO ────────────────────────────────────────
 function onProdChange() {
   var cod  = document.getElementById('sel-prod').value;
   var prev = document.getElementById('prod-prev');
   var tsel = document.getElementById('sel-tam');
   var tlbl = document.getElementById('tam-lbl');
-
-  if (!cod) {
-    prev.className = 'prod-prev';
-    tsel.innerHTML = '<option value="">— Selecione o produto —</option>';
-    return;
-  }
+  if (!cod) { prev.className = 'prod-prev'; tsel.innerHTML = '<option value="">— Selecione o produto —</option>'; return; }
   var p = null;
   for (var i = 0; i < CAT.length; i++) { if (CAT[i].cod === cod) { p = CAT[i]; break; } }
   if (!p) return;
-
   var dotColor = COR_DOTS[p.cor] || '#888';
   prev.innerHTML = '<span class="pc">Cod.' + p.cod + '</span> &middot; ' + p.tipo + ' &middot; ' + p.estampa +
     ' &middot; <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + dotColor + ';border:1px solid rgba(255,255,255,.3);vertical-align:middle;margin-right:3px;"></span>' +
     p.cor + ' &middot; <span class="pp">R$' + p.preco + ',00</span>';
   prev.className = 'prod-prev show';
-
   var fem  = p.tipo.toLowerCase().indexOf('babylook') !== -1;
   var tams = fem ? TAM_F : TAM_M;
   tlbl.innerHTML = (fem ? 'Tamanho Feminino' : 'Tamanho Masculino') + ' <span class="req">*</span>';
@@ -445,60 +447,44 @@ function onProdChange() {
   tams.forEach(function(t) { tsel.innerHTML += '<option value="' + t + '">' + t + '</option>'; });
 }
 
-// ── ADICIONAR AO CARRINHO ──────────────────────────────────────
 function adicionarAoCarrinho() {
   var cod = document.getElementById('sel-prod').value;
   var tam = document.getElementById('sel-tam').value;
   var qtd = document.getElementById('sel-qtd').value;
-
   if (!cod) { toast('⚠️ Selecione um produto.'); return; }
   if (!tam) { toast('⚠️ Selecione o tamanho.'); return; }
   if (!qtd) { toast('⚠️ Selecione a quantidade.'); return; }
-
   var p = null;
   for (var i = 0; i < CAT.length; i++) { if (CAT[i].cod === cod) { p = CAT[i]; break; } }
   if (!p) return;
-
   carrinho.push({ id: Date.now(), cod:p.cod, tipo:p.tipo, estampa:p.estampa, cor:p.cor, tamanho:tam, qtd:parseInt(qtd), preco:p.preco });
-
-  // Reseta seletor
   document.getElementById('sel-prod').value = '';
   document.getElementById('prod-prev').className = 'prod-prev';
   document.getElementById('sel-tam').innerHTML = '<option value="">— Selecione o produto —</option>';
   document.getElementById('sel-qtd').value = '';
   document.getElementById('tam-lbl').innerHTML = 'Tamanho <span class="req">*</span>';
-
   renderCarrinho();
   toast('✅ Item adicionado ao carrinho!');
 }
 
-// ── REMOVER ────────────────────────────────────────────────────
 function removerItem(id) {
   carrinho = carrinho.filter(function(i){ return i.id !== id; });
   renderCarrinho();
 }
 
-// ── RENDER CARRINHO ────────────────────────────────────────────
 function renderCarrinho() {
   var lista    = document.getElementById('cart-list');
   var totalRow = document.getElementById('cart-total-row');
   var count    = document.getElementById('cart-count');
-
   count.textContent = '(' + carrinho.length + ' ' + (carrinho.length === 1 ? 'item' : 'itens') + ')';
-
-  // Reconstrói o conteúdo da lista do zero — sem referências externas
   if (carrinho.length === 0) {
     lista.innerHTML = '<div class="carrinho-vazio"><div class="icon">🛒</div>Nenhum item adicionado ainda.<br>Selecione um produto acima e clique em <strong>Adicionar ao Carrinho</strong>.</div>';
     totalRow.style.display = 'none';
     return;
   }
-
-  var html = '';
-  var total = 0;
+  var html = ''; var total = 0;
   carrinho.forEach(function(item, idx) {
-    var sub = item.preco * item.qtd;
-    total  += sub;
-    var dotColor = COR_DOTS[item.cor] || '#888';
+    var sub = item.preco * item.qtd; total += sub;
     html += '<div class="cart-item">' +
       '<div class="cart-num">' + (idx+1) + '</div>' +
       '<div class="cart-info">' +
@@ -509,31 +495,19 @@ function renderCarrinho() {
       '<button class="cart-remove" onclick="removerItem(' + item.id + ')">✕</button>' +
     '</div>';
   });
-
   lista.innerHTML = html;
   totalRow.style.display = 'block';
   document.getElementById('cart-total-val').textContent = 'R$' + total + ',00';
 }
 
-// ── CATÁLOGO POPUP ─────────────────────────────────────────────
-function abrirCatalogo() {
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function fecharCatalogo() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function fecharSeForaDoModal(e) {
-  if (e.target === document.getElementById('modal-overlay')) fecharCatalogo();
-}
+function abrirCatalogo() { document.getElementById('modal-overlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function fecharCatalogo() { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow = ''; }
+function fecharSeForaDoModal(e) { if (e.target === document.getElementById('modal-overlay')) fecharCatalogo(); }
 
-// ── VALIDAÇÃO ──────────────────────────────────────────────────
 function validar() {
   var ok = true;
   function chk(id, errId, fn) {
-    var el = document.getElementById(id);
-    var er = document.getElementById(errId);
+    var el = document.getElementById(id), er = document.getElementById(errId);
     if (!fn(el.value)) { el.classList.add('error'); if(er) er.classList.add('show'); ok = false; }
     else { el.classList.remove('error'); if(er) er.classList.remove('show'); }
   }
@@ -545,8 +519,17 @@ function validar() {
 }
 
 // ── ENVIAR ─────────────────────────────────────────────────────
+// CORREÇÃO 1: onload registrado DEPOIS do submit (evita disparo falso no estado vazio do iframe)
+// CORREÇÃO 2: timeout aumentado de 4s para 45s (cobre cold start do GAS de até ~30s)
+// CORREÇÃO 3: tela de "Enviando…" substitui o formulário (usuário não recarrega nem reenvia)
+
+var _enviado = false;
+var _timeoutId = null;
+
 function enviarPedido() {
   if (!validar()) return;
+  _enviado = false;
+  clearTimeout(_timeoutId);
 
   var payload = {
     nome:    document.getElementById('nome').value.trim(),
@@ -556,27 +539,48 @@ function enviarPedido() {
     itens:   carrinho
   };
 
-  var btn = document.getElementById('btn-enviar');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Enviando…';
+  // Esconde form, mostra tela de loading
+  document.getElementById('form-area').style.display      = 'none';
+  document.getElementById('sending-screen').style.display = 'block';
+  window.scrollTo({top: 0, behavior: 'smooth'});
 
+  // Ativa a barra de progresso animada (45s)
+  setTimeout(function() {
+    document.getElementById('progress-bar').style.width = '100%';
+  }, 80);
+
+  // Prepara o form e submete
   document.getElementById('hidden-dados').value = JSON.stringify(payload);
   document.getElementById('hidden-form').action = API_URL;
+  document.getElementById('hidden-iframe').onload = null; // limpa listener anterior
 
-  var enviado = false;
-  function sucesso() {
-    if (enviado) return;
-    enviado = true;
-    document.getElementById('form-area').style.display = 'none';
-    document.getElementById('success').style.display   = 'block';
-    window.scrollTo({top:0, behavior:'smooth'});
-  }
-  document.getElementById('hidden-iframe').onload = sucesso;
-  setTimeout(sucesso, 4000);
   document.getElementById('hidden-form').submit();
+
+  // CORREÇÃO 1: registra onload 400ms APÓS o submit
+  // (evita capturar o estado vazio do iframe antes da resposta chegar)
+  setTimeout(function() {
+    document.getElementById('hidden-iframe').onload = function() {
+      mostrarSucesso();
+    };
+  }, 400);
+
+  // CORREÇÃO 2: fallback de 45s
+  // Se o onload não disparar (GAS demorou, ou resposta foi bloqueada por
+  // cross-origin), assume que o pedido foi enviado e mostra sucesso.
+  _timeoutId = setTimeout(function() {
+    mostrarSucesso();
+  }, 45000);
 }
 
-// ── TABS ────────────────────────────────────────────────────────
+function mostrarSucesso() {
+  if (_enviado) return;
+  _enviado = true;
+  clearTimeout(_timeoutId);
+  document.getElementById('sending-screen').style.display = 'none';
+  document.getElementById('success').style.display        = 'block';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
 function showTab(id, btn) {
   document.getElementById('tab-fem').style.display = id === 'fem' ? '' : 'none';
   document.getElementById('tab-mas').style.display = id === 'mas' ? '' : 'none';
@@ -584,7 +588,6 @@ function showTab(id, btn) {
   btn.classList.add('active');
 }
 
-// ── TOAST ────────────────────────────────────────────────────────
 function toast(msg) {
   var t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');

@@ -16,7 +16,6 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;padding-bottom:80px;}
 
-/* HERO */
 .hero{background:linear-gradient(135deg,#0B1829 0%,#0E2240 60%,#0B2535 100%);padding:48px 24px 44px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 15% 50%,rgba(0,210,230,.18) 0%,transparent 70%),radial-gradient(ellipse 45% 60% at 85% 50%,rgba(233,30,140,.12) 0%,transparent 70%);}
 .hero-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(0,210,230,.12);border:1px solid rgba(0,210,230,.3);color:var(--cyan);font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:999px;margin-bottom:18px;position:relative;}
@@ -28,12 +27,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);mi
 .hero-badge.date{background:rgba(233,30,140,.15);border:1px solid rgba(233,30,140,.3);color:#ff69b4;}
 .hero-badge.time{background:rgba(0,210,230,.1);border:1px solid rgba(0,210,230,.25);color:var(--cyan);}
 
-/* BOTAO FLUTUANTE CATALOGO */
 .fab{position:fixed;bottom:28px;right:20px;z-index:200;width:56px;height:56px;border-radius:50%;background:var(--pink);border:none;cursor:pointer;box-shadow:0 4px 20px rgba(233,30,140,.4);display:flex;align-items:center;justify-content:center;font-size:22px;transition:transform .2s,box-shadow .2s;}
 .fab:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(233,30,140,.6);}
 .fab-label{position:absolute;right:64px;background:rgba(15,22,35,.95);border:1px solid var(--border);color:var(--white);font-size:12px;font-weight:600;padding:5px 10px;border-radius:7px;white-space:nowrap;}
 
-/* MODAL CATALOGO */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:300;display:none;align-items:center;justify-content:center;padding:16px;}
 .modal-overlay.open{display:flex;}
 .modal{background:var(--surface);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:860px;height:90vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:modalIn .3s ease;overflow:hidden;}
@@ -49,23 +46,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);mi
 .pdf-fallback p{color:var(--muted);font-size:14px;line-height:1.65;}
 .pdf-fallback a{display:inline-block;padding:11px 22px;border-radius:9px;background:var(--cyan);color:#0B1829;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;text-decoration:none;}
 
-/* CONTAINER */
 .container{max-width:700px;margin:0 auto;padding:24px 16px 0;}
 
-/* ALERT */
 .alert{background:rgba(0,210,230,.05);border:1px solid rgba(0,210,230,.18);border-left:3px solid var(--cyan);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px;font-size:13px;line-height:1.75;color:var(--muted2);}
 .alert strong{color:var(--cyan);}
 .alert ul{padding-left:16px;margin-top:6px;}
 .alert li{margin-bottom:3px;}
 
-/* CARD */
 .card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:24px 24px 20px;margin-bottom:14px;box-shadow:var(--shadow);animation:fadeUp .4s ease both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 
 .section-label{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 
-/* FIELDS */
 .field{margin-bottom:16px;}
 .field:last-child{margin-bottom:0;}
 label{display:block;font-size:13px;font-weight:500;color:var(--muted2);margin-bottom:6px;}
@@ -83,7 +76,6 @@ textarea{resize:vertical;min-height:80px;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 @media(max-width:480px){.grid2{grid-template-columns:1fr;}}
 
-/* TABELA NUMERAÇÃO */
 .tab-btns{display:flex;gap:8px;margin-bottom:12px;}
 .tab-btn{padding:7px 16px;border-radius:8px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.12);background:transparent;color:var(--muted);transition:all .2s;}
 .tab-btn.active{background:var(--cyan);color:#0B1829;border-color:var(--cyan);}
@@ -94,7 +86,6 @@ textarea{resize:vertical;min-height:80px;}
 .size-tbl tr:nth-child(even) td{background:rgba(255,255,255,.02);}
 .size-tbl .rl{text-align:left;color:var(--muted);font-size:11px;}
 
-/* SELETOR */
 .produto-selector{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:20px;}
 .prod-prev{display:none;margin-top:10px;background:rgba(0,210,230,.07);border:1px solid rgba(0,210,230,.2);border-radius:8px;padding:10px 14px;font-size:12.5px;line-height:1.6;color:var(--muted2);}
 .prod-prev.show{display:block;}
@@ -103,7 +94,6 @@ textarea{resize:vertical;min-height:80px;}
 .btn-add{width:100%;margin-top:14px;padding:13px;border-radius:10px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:2px solid var(--cyan);background:transparent;color:var(--cyan);transition:all .2s;letter-spacing:.5px;}
 .btn-add:hover{background:rgba(0,210,230,.1);}
 
-/* CARRINHO */
 .cart-list{min-height:20px;}
 .carrinho-vazio{text-align:center;padding:24px;color:var(--muted);font-size:13.5px;}
 .carrinho-vazio .icon{font-size:32px;margin-bottom:8px;}
@@ -120,50 +110,41 @@ textarea{resize:vertical;min-height:80px;}
 .cart-total-label{font-size:13px;color:var(--muted2);}
 .cart-total-val{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--pink);}
 
-/* BOTAO PRINCIPAL */
 .btn{width:100%;padding:15px;border-radius:10px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border:none;letter-spacing:.5px;transition:transform .15s,box-shadow .15s;}
 .btn:active{transform:scale(.98);}
 .btn-primary{background:var(--cyan);color:#0B1829;box-shadow:0 6px 24px rgba(0,210,230,.25);}
 .btn-primary:hover{box-shadow:0 8px 36px rgba(0,210,230,.4);}
 .btn-primary:disabled{background:#2a3a4a;color:var(--muted);box-shadow:none;cursor:not-allowed;}
 
-/* ── TELA DE ENVIANDO (NOVA) ── */
+/* TELA ENVIANDO */
 .sending-screen{display:none;text-align:center;background:var(--surface);border:1px solid rgba(0,210,230,.2);border-radius:var(--radius);padding:52px 24px;margin-bottom:14px;}
 .sending-screen .spin-big{width:52px;height:52px;border:3px solid rgba(0,210,230,.15);border-top-color:var(--cyan);border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 20px;}
 .sending-screen h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--cyan);margin-bottom:10px;}
 .sending-screen p{color:var(--muted);font-size:13.5px;line-height:1.7;max-width:340px;margin:0 auto;}
 .progress-wrap{width:100%;max-width:300px;height:4px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin:20px auto 0;}
-.progress-bar{height:100%;background:var(--cyan);border-radius:999px;width:0%;transition:width 45s linear;}
+.progress-bar{height:100%;background:var(--cyan);border-radius:999px;width:0%;transition:width 90s linear;}
 
-/* SUCESSO */
+/* SUCESSO — com aviso de verificação */
 .success-screen{display:none;text-align:center;background:var(--surface);border:1px solid rgba(0,210,230,.2);border-radius:var(--radius);padding:52px 24px;}
 .success-icon{font-size:56px;margin-bottom:16px;}
 .success-screen h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--cyan);margin-bottom:10px;}
-.success-screen p{color:var(--muted);font-size:14px;line-height:1.7;max-width:380px;margin:0 auto;}
+.success-screen p{color:var(--muted);font-size:14px;line-height:1.7;max-width:400px;margin:0 auto;}
+/* Caixa de aviso de verificação — aparece só no fallback do timeout */
+.aviso-verificar{display:none;margin:20px auto 0;max-width:400px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.25);border-left:3px solid var(--pink);border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.7;color:var(--muted2);text-align:left;}
+.aviso-verificar strong{color:var(--pink);}
 
-/* TOAST */
 .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background:#fff;color:#0B1829;padding:13px 22px;border-radius:10px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,.35);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 .spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(11,24,41,.3);border-top-color:#0B1829;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px;}
 @keyframes spin{to{transform:rotate(360deg);}}
-
-/* COR DOTS */
-.dot-marinho{background:#1a3a6e;}
-.dot-azul{background:#4ab4e6;}
-.dot-pink{background:#e91e8c;}
-.dot-branco{background:#f0f0f0;}
-.dot-preto{background:#222;}
 </style>
 </head>
 <body>
 
-<!-- BOTÃO FLUTUANTE CATÁLOGO -->
 <button class="fab" onclick="abrirCatalogo()" title="Ver catálogo de camisetas">
-  👕
-  <span class="fab-label">Ver Catálogo</span>
+  👕<span class="fab-label">Ver Catálogo</span>
 </button>
 
-<!-- MODAL CATÁLOGO -->
 <div class="modal-overlay" id="modal-overlay" onclick="fecharSeForaDoModal(event)">
   <div class="modal" id="modal">
     <div class="modal-header">
@@ -196,7 +177,7 @@ textarea{resize:vertical;min-height:80px;}
 
 <div class="container">
 
-  <!-- ── TELA ENVIANDO (NOVA) ── -->
+  <!-- TELA ENVIANDO -->
   <div class="sending-screen" id="sending-screen">
     <div class="spin-big"></div>
     <h3>Registrando seu pedido…</h3>
@@ -208,7 +189,18 @@ textarea{resize:vertical;min-height:80px;}
   <div class="success-screen" id="success">
     <div class="success-icon">✅</div>
     <h2>Pedido enviado!</h2>
-    <p>Seu pedido foi registrado com sucesso e você receberá um <strong>e-mail de confirmação</strong> em breve.<br><br>As camisetas serão enviadas para sua unidade após a confecção.<br><br>Dúvidas: <strong>natalia.santana@totvs.com.br</strong></p>
+    <p>Seu pedido foi registrado e você receberá um <strong>e-mail de confirmação</strong> em breve.<br><br>
+    As camisetas serão enviadas para sua unidade após a confecção.<br><br>
+    Dúvidas: <strong>natalia.santana@totvs.com.br</strong></p>
+    <!--
+      Este aviso só aparece quando o pedido demorou mais de 90s (timeout).
+      Orienta o usuário a verificar se o e-mail chegou antes de reenviar.
+    -->
+    <div class="aviso-verificar" id="aviso-verificar">
+      <strong>⚠️ O envio demorou mais que o esperado.</strong><br>
+      Verifique sua caixa de entrada — se o e-mail de confirmação chegar, seu pedido foi registrado normalmente.<br>
+      Se não chegar em 5 minutos, entre em contato com <strong>natalia.santana@totvs.com.br</strong> antes de reenviar.
+    </div>
   </div>
 
   <div id="form-area">
@@ -216,6 +208,7 @@ textarea{resize:vertical;min-height:80px;}
     <div class="alert">
       <strong>⚠️ Leia antes de preencher:</strong>
       <ul>
+        <strong>⚠️ O envio demorou mais que o esperado.</strong><br>
         <li>Consulte a <strong>Tabela de Numeração</strong> antes de escolher o tamanho.</li>
         <li>Masculino e feminino possuem tabelas <strong>diferentes</strong>.</li>
         <li><strong>Trocas não serão permitidas.</strong> Observe atentamente o modelo e a numeração.</li>
@@ -225,7 +218,6 @@ textarea{resize:vertical;min-height:80px;}
       </ul>
     </div>
 
-    <!-- TABELA NUMERAÇÃO -->
     <div class="card">
       <div class="section-label">📐 Tabela de Numeração</div>
       <div class="tab-btns">
@@ -255,7 +247,6 @@ textarea{resize:vertical;min-height:80px;}
       </div>
     </div>
 
-    <!-- DADOS -->
     <div class="card">
       <div class="section-label">👤 Dados do Solicitante</div>
       <div class="field">
@@ -283,7 +274,6 @@ textarea{resize:vertical;min-height:80px;}
       </div>
     </div>
 
-    <!-- ADICIONAR ITEM -->
     <div class="card">
       <div class="section-label">👕 Adicionar Item</div>
       <div class="produto-selector">
@@ -300,9 +290,7 @@ textarea{resize:vertical;min-height:80px;}
           <div class="field">
             <label id="tam-lbl">Tamanho <span class="req">*</span></label>
             <div class="sw">
-              <select id="sel-tam">
-                <option value="">— Selecione o produto —</option>
-              </select>
+              <select id="sel-tam"><option value="">— Selecione o produto —</option></select>
             </div>
           </div>
           <div class="field">
@@ -321,7 +309,6 @@ textarea{resize:vertical;min-height:80px;}
       </div>
     </div>
 
-    <!-- CARRINHO -->
     <div class="card">
       <div class="section-label">🛒 Carrinho <span id="cart-count" style="font-size:11px;color:var(--muted);margin-left:4px;font-weight:400;letter-spacing:0;">(0 itens)</span></div>
       <div class="cart-list" id="cart-list"></div>
@@ -333,7 +320,6 @@ textarea{resize:vertical;min-height:80px;}
       </div>
     </div>
 
-    <!-- OBSERVAÇÕES -->
     <div class="card">
       <div class="section-label">📝 Observações</div>
       <div class="field">
@@ -342,11 +328,9 @@ textarea{resize:vertical;min-height:80px;}
       </div>
     </div>
 
-    <!-- ENVIAR -->
     <div class="card" style="padding:18px 24px;">
       <button class="btn btn-primary" id="btn-enviar" onclick="enviarPedido()">✅ Enviar Pedido</button>
     </div>
-
   </div>
 </div>
 
@@ -405,130 +389,75 @@ window.onload = function() { initProdutos(); renderCarrinho(); };
 
 function initProdutos() {
   var sel = document.getElementById('sel-prod');
-  var grupos = [
-    {lbl:'── Camisetas — R$42,00 ──', de:1, ate:22},
-    {lbl:'── Polo Malha Fria — R$55,00 ──', de:23, ate:28},
-    {lbl:'── Polo Piquet — R$62,00 ──', de:29, ate:34}
-  ];
-  grupos.forEach(function(g) {
-    var sep = document.createElement('option');
-    sep.disabled = true; sep.textContent = g.lbl;
-    sel.appendChild(sep);
-    CAT.forEach(function(p) {
-      var n = parseInt(p.cod);
-      if (n >= g.de && n <= g.ate) {
-        var o = document.createElement('option');
-        o.value = p.cod;
-        o.textContent = 'Cod.' + p.cod + ' | ' + p.tipo + ' | ' + p.estampa + ' | ' + p.cor + ' | R$' + p.preco + ',00';
-        sel.appendChild(o);
-      }
-    });
+  [{lbl:'── Camisetas — R$42,00 ──',de:1,ate:22},{lbl:'── Polo Malha Fria — R$55,00 ──',de:23,ate:28},{lbl:'── Polo Piquet — R$62,00 ──',de:29,ate:34}].forEach(function(g) {
+    var sep = document.createElement('option'); sep.disabled=true; sep.textContent=g.lbl; sel.appendChild(sep);
+    CAT.forEach(function(p){var n=parseInt(p.cod);if(n>=g.de&&n<=g.ate){var o=document.createElement('option');o.value=p.cod;o.textContent='Cod.'+p.cod+' | '+p.tipo+' | '+p.estampa+' | '+p.cor+' | R$'+p.preco+',00';sel.appendChild(o);}});
   });
 }
 
 function onProdChange() {
-  var cod  = document.getElementById('sel-prod').value;
-  var prev = document.getElementById('prod-prev');
-  var tsel = document.getElementById('sel-tam');
-  var tlbl = document.getElementById('tam-lbl');
-  if (!cod) { prev.className = 'prod-prev'; tsel.innerHTML = '<option value="">— Selecione o produto —</option>'; return; }
-  var p = null;
-  for (var i = 0; i < CAT.length; i++) { if (CAT[i].cod === cod) { p = CAT[i]; break; } }
-  if (!p) return;
-  var dotColor = COR_DOTS[p.cor] || '#888';
-  prev.innerHTML = '<span class="pc">Cod.' + p.cod + '</span> &middot; ' + p.tipo + ' &middot; ' + p.estampa +
-    ' &middot; <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + dotColor + ';border:1px solid rgba(255,255,255,.3);vertical-align:middle;margin-right:3px;"></span>' +
-    p.cor + ' &middot; <span class="pp">R$' + p.preco + ',00</span>';
-  prev.className = 'prod-prev show';
-  var fem  = p.tipo.toLowerCase().indexOf('babylook') !== -1;
-  var tams = fem ? TAM_F : TAM_M;
-  tlbl.innerHTML = (fem ? 'Tamanho Feminino' : 'Tamanho Masculino') + ' <span class="req">*</span>';
-  tsel.innerHTML = '<option value="">— Selecione —</option>';
-  tams.forEach(function(t) { tsel.innerHTML += '<option value="' + t + '">' + t + '</option>'; });
+  var cod=document.getElementById('sel-prod').value,prev=document.getElementById('prod-prev'),tsel=document.getElementById('sel-tam'),tlbl=document.getElementById('tam-lbl');
+  if(!cod){prev.className='prod-prev';tsel.innerHTML='<option value="">— Selecione o produto —</option>';return;}
+  var p=null;for(var i=0;i<CAT.length;i++){if(CAT[i].cod===cod){p=CAT[i];break;}}if(!p)return;
+  var dc=COR_DOTS[p.cor]||'#888';
+  prev.innerHTML='<span class="pc">Cod.'+p.cod+'</span> &middot; '+p.tipo+' &middot; '+p.estampa+' &middot; <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:'+dc+';border:1px solid rgba(255,255,255,.3);vertical-align:middle;margin-right:3px;"></span>'+p.cor+' &middot; <span class="pp">R$'+p.preco+',00</span>';
+  prev.className='prod-prev show';
+  var fem=p.tipo.toLowerCase().indexOf('babylook')!==-1,tams=fem?TAM_F:TAM_M;
+  tlbl.innerHTML=(fem?'Tamanho Feminino':'Tamanho Masculino')+' <span class="req">*</span>';
+  tsel.innerHTML='<option value="">— Selecione —</option>';
+  tams.forEach(function(t){tsel.innerHTML+='<option value="'+t+'">'+t+'</option>';});
 }
 
 function adicionarAoCarrinho() {
-  var cod = document.getElementById('sel-prod').value;
-  var tam = document.getElementById('sel-tam').value;
-  var qtd = document.getElementById('sel-qtd').value;
-  if (!cod) { toast('⚠️ Selecione um produto.'); return; }
-  if (!tam) { toast('⚠️ Selecione o tamanho.'); return; }
-  if (!qtd) { toast('⚠️ Selecione a quantidade.'); return; }
-  var p = null;
-  for (var i = 0; i < CAT.length; i++) { if (CAT[i].cod === cod) { p = CAT[i]; break; } }
-  if (!p) return;
-  carrinho.push({ id: Date.now(), cod:p.cod, tipo:p.tipo, estampa:p.estampa, cor:p.cor, tamanho:tam, qtd:parseInt(qtd), preco:p.preco });
-  document.getElementById('sel-prod').value = '';
-  document.getElementById('prod-prev').className = 'prod-prev';
-  document.getElementById('sel-tam').innerHTML = '<option value="">— Selecione o produto —</option>';
-  document.getElementById('sel-qtd').value = '';
-  document.getElementById('tam-lbl').innerHTML = 'Tamanho <span class="req">*</span>';
-  renderCarrinho();
-  toast('✅ Item adicionado ao carrinho!');
+  var cod=document.getElementById('sel-prod').value,tam=document.getElementById('sel-tam').value,qtd=document.getElementById('sel-qtd').value;
+  if(!cod){toast('⚠️ Selecione um produto.');return;}if(!tam){toast('⚠️ Selecione o tamanho.');return;}if(!qtd){toast('⚠️ Selecione a quantidade.');return;}
+  var p=null;for(var i=0;i<CAT.length;i++){if(CAT[i].cod===cod){p=CAT[i];break;}}if(!p)return;
+  carrinho.push({id:Date.now(),cod:p.cod,tipo:p.tipo,estampa:p.estampa,cor:p.cor,tamanho:tam,qtd:parseInt(qtd),preco:p.preco});
+  document.getElementById('sel-prod').value='';document.getElementById('prod-prev').className='prod-prev';
+  document.getElementById('sel-tam').innerHTML='<option value="">— Selecione o produto —</option>';
+  document.getElementById('sel-qtd').value='';document.getElementById('tam-lbl').innerHTML='Tamanho <span class="req">*</span>';
+  renderCarrinho();toast('✅ Item adicionado ao carrinho!');
 }
 
-function removerItem(id) {
-  carrinho = carrinho.filter(function(i){ return i.id !== id; });
-  renderCarrinho();
-}
+function removerItem(id){carrinho=carrinho.filter(function(i){return i.id!==id;});renderCarrinho();}
 
 function renderCarrinho() {
-  var lista    = document.getElementById('cart-list');
-  var totalRow = document.getElementById('cart-total-row');
-  var count    = document.getElementById('cart-count');
-  count.textContent = '(' + carrinho.length + ' ' + (carrinho.length === 1 ? 'item' : 'itens') + ')';
-  if (carrinho.length === 0) {
-    lista.innerHTML = '<div class="carrinho-vazio"><div class="icon">🛒</div>Nenhum item adicionado ainda.<br>Selecione um produto acima e clique em <strong>Adicionar ao Carrinho</strong>.</div>';
-    totalRow.style.display = 'none';
-    return;
-  }
-  var html = ''; var total = 0;
-  carrinho.forEach(function(item, idx) {
-    var sub = item.preco * item.qtd; total += sub;
-    html += '<div class="cart-item">' +
-      '<div class="cart-num">' + (idx+1) + '</div>' +
-      '<div class="cart-info">' +
-        '<div class="cart-name">Cod.' + item.cod + ' · ' + item.estampa + ' · ' + item.cor + '</div>' +
-        '<div class="cart-details">' + item.tipo + ' · Tam. ' + item.tamanho + ' · ' + item.qtd + 'x</div>' +
-      '</div>' +
-      '<div class="cart-price">R$' + sub + ',00</div>' +
-      '<button class="cart-remove" onclick="removerItem(' + item.id + ')">✕</button>' +
-    '</div>';
-  });
-  lista.innerHTML = html;
-  totalRow.style.display = 'block';
-  document.getElementById('cart-total-val').textContent = 'R$' + total + ',00';
+  var lista=document.getElementById('cart-list'),totalRow=document.getElementById('cart-total-row'),count=document.getElementById('cart-count');
+  count.textContent='('+carrinho.length+' '+(carrinho.length===1?'item':'itens')+')';
+  if(carrinho.length===0){lista.innerHTML='<div class="carrinho-vazio"><div class="icon">🛒</div>Nenhum item adicionado ainda.<br>Selecione um produto acima e clique em <strong>Adicionar ao Carrinho</strong>.</div>';totalRow.style.display='none';return;}
+  var html='',total=0;
+  carrinho.forEach(function(item,idx){var sub=item.preco*item.qtd;total+=sub;html+='<div class="cart-item"><div class="cart-num">'+(idx+1)+'</div><div class="cart-info"><div class="cart-name">Cod.'+item.cod+' · '+item.estampa+' · '+item.cor+'</div><div class="cart-details">'+item.tipo+' · Tam. '+item.tamanho+' · '+item.qtd+'x</div></div><div class="cart-price">R$'+sub+',00</div><button class="cart-remove" onclick="removerItem('+item.id+')">✕</button></div>';});
+  lista.innerHTML=html;totalRow.style.display='block';
+  document.getElementById('cart-total-val').textContent='R$'+total+',00';
 }
 
-function abrirCatalogo() { document.getElementById('modal-overlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
-function fecharCatalogo() { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow = ''; }
-function fecharSeForaDoModal(e) { if (e.target === document.getElementById('modal-overlay')) fecharCatalogo(); }
+function abrirCatalogo(){document.getElementById('modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function fecharCatalogo(){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow='';}
+function fecharSeForaDoModal(e){if(e.target===document.getElementById('modal-overlay'))fecharCatalogo();}
 
 function validar() {
-  var ok = true;
-  function chk(id, errId, fn) {
-    var el = document.getElementById(id), er = document.getElementById(errId);
-    if (!fn(el.value)) { el.classList.add('error'); if(er) er.classList.add('show'); ok = false; }
-    else { el.classList.remove('error'); if(er) er.classList.remove('show'); }
-  }
-  chk('nome',    'err-nome',    function(v){ return v.trim().length >= 3; });
-  chk('email',   'err-email',   function(v){ return v.toLowerCase().indexOf('@totvs.com.br') !== -1; });
-  chk('unidade', 'err-unidade', function(v){ return v !== ''; });
-  if (carrinho.length === 0) { toast('⚠️ Adicione pelo menos um item ao carrinho.'); ok = false; }
+  var ok=true;
+  function chk(id,errId,fn){var el=document.getElementById(id),er=document.getElementById(errId);if(!fn(el.value)){el.classList.add('error');if(er)er.classList.add('show');ok=false;}else{el.classList.remove('error');if(er)er.classList.remove('show');}}
+  chk('nome','err-nome',function(v){return v.trim().length>=3;});
+  chk('email','err-email',function(v){return v.toLowerCase().indexOf('@totvs.com.br')!==-1;});
+  chk('unidade','err-unidade',function(v){return v!=='';});
+  if(carrinho.length===0){toast('⚠️ Adicione pelo menos um item ao carrinho.');ok=false;}
   return ok;
 }
 
 // ── ENVIAR ─────────────────────────────────────────────────────
-// CORREÇÃO 1: onload registrado DEPOIS do submit (evita disparo falso no estado vazio do iframe)
-// CORREÇÃO 2: timeout aumentado de 4s para 45s (cobre cold start do GAS de até ~30s)
-// CORREÇÃO 3: tela de "Enviando…" substitui o formulário (usuário não recarrega nem reenvia)
+// Fluxo:
+// 1. iframe.onload dispara → GAS respondeu → mostra sucesso imediato (foidoOnload=true)
+// 2. Se onload não disparar em 90s → timeout → mostra sucesso + aviso de verificação
 
-var _enviado = false;
-var _timeoutId = null;
+var _enviado    = false;
+var _foidoOnload = false;
+var _timeoutId  = null;
 
 function enviarPedido() {
   if (!validar()) return;
   _enviado = false;
+  _foidoOnload = false;
   clearTimeout(_timeoutId);
 
   var payload = {
@@ -539,60 +468,48 @@ function enviarPedido() {
     itens:   carrinho
   };
 
-  // Esconde form, mostra tela de loading
   document.getElementById('form-area').style.display      = 'none';
   document.getElementById('sending-screen').style.display = 'block';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 
-  // Ativa a barra de progresso animada (45s)
-  setTimeout(function() {
-    document.getElementById('progress-bar').style.width = '100%';
-  }, 80);
+  setTimeout(function(){ document.getElementById('progress-bar').style.width='100%'; }, 80);
 
-  // Prepara o form e submete
   document.getElementById('hidden-dados').value = JSON.stringify(payload);
   document.getElementById('hidden-form').action = API_URL;
-  document.getElementById('hidden-iframe').onload = null; // limpa listener anterior
+  document.getElementById('hidden-iframe').onload = null;
 
   document.getElementById('hidden-form').submit();
 
-  // CORREÇÃO 1: registra onload 400ms APÓS o submit
-  // (evita capturar o estado vazio do iframe antes da resposta chegar)
+  // Registra onload 400ms após o submit
   setTimeout(function() {
     document.getElementById('hidden-iframe').onload = function() {
-      mostrarSucesso();
+      _foidoOnload = true;
+      mostrarSucesso(false); // false = veio do onload, não do timeout
     };
   }, 400);
 
-  // CORREÇÃO 2: fallback de 45s
-  // Se o onload não disparar (GAS demorou, ou resposta foi bloqueada por
-  // cross-origin), assume que o pedido foi enviado e mostra sucesso.
+  // Fallback de 90s — dobrado em relação à versão anterior para mais segurança.
+  // Se disparar, mostra aviso pedindo para verificar o e-mail.
   _timeoutId = setTimeout(function() {
-    mostrarSucesso();
-  }, 45000);
+    mostrarSucesso(true); // true = veio do timeout
+  }, 90000);
 }
 
-function mostrarSucesso() {
+function mostrarSucesso(foiTimeout) {
   if (_enviado) return;
   _enviado = true;
   clearTimeout(_timeoutId);
   document.getElementById('sending-screen').style.display = 'none';
   document.getElementById('success').style.display        = 'block';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  // Só mostra o aviso de verificação se foi o timeout que disparou
+  if (foiTimeout) {
+    document.getElementById('aviso-verificar').style.display = 'block';
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function showTab(id, btn) {
-  document.getElementById('tab-fem').style.display = id === 'fem' ? '' : 'none';
-  document.getElementById('tab-mas').style.display = id === 'mas' ? '' : 'none';
-  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
-}
-
-function toast(msg) {
-  var t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 3000);
-}
+function showTab(id,btn){document.getElementById('tab-fem').style.display=id==='fem'?'':'none';document.getElementById('tab-mas').style.display=id==='mas'?'':'none';document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');}
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},3000);}
 </script>
 </body>
 </html>
